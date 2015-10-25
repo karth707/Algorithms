@@ -13,8 +13,8 @@ public class HeapSort {
 	 * = c(2^k)(1/2^0 + 1/2^1 + 1/2^2 .....k+1/2^k) (2^k=logn)
 	 * = c1(2^k)(c2) => constant*n = O(n) time 
 	 */
-	private static void buildHeap(int[] input, int endIndex) {
-		int size = endIndex+1;
+	private static void buildHeap(int[] input) {
+		int size = input.length;
 		for(int parentIndex = size/2-1; parentIndex>=0; parentIndex--){
 			maxHeapify(input, parentIndex, size);
 		}
@@ -52,14 +52,13 @@ public class HeapSort {
 	 */
 	private static void heapSort(int[] input) {
 		int count = 1;
-		HeapSort.buildHeap(input, input.length-count);
+		HeapSort.buildHeap(input);
 		while(count<=input.length){
 			swap(input, 0, input.length-count);
 			HeapSort.maxHeapify(input, 0, input.length-count);
 			count++;
 		}
 	}
-
 
 	public static void main( String[] args ){
     	int[] input = {4,5,2,11,65,91,34,1,11};
