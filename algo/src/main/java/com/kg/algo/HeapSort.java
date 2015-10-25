@@ -13,7 +13,7 @@ public class HeapSort {
 	 * = c(2^k)(1/2^0 + 1/2^1 + 1/2^2 .....k+1/2^k) (2^k=logn)
 	 * = c1(2^k)(c2) => constant*n = O(n) time 
 	 */
-	private static void buildHeap(int[] input) {
+	public static void buildHeap(int[] input) {
 		int size = input.length;
 		for(int parentIndex = size/2-1; parentIndex>=0; parentIndex--){
 			maxHeapify(input, parentIndex, size);
@@ -24,7 +24,7 @@ public class HeapSort {
 	 * Due to the assumption that maxHeapifyGets a heap that satisfies mhp,
 	 * each call does a max of logn swaps (height of tree)
 	 */
-    private static void maxHeapify(int[] input, int parentIndex, int size) {
+	public static void maxHeapify(int[] input, int parentIndex, int size) {
     	int leftIndex = 2*parentIndex + 1;
     	int rightIndex = 2*parentIndex + 2;
     	if(leftIndex < size && input[parentIndex] < input[leftIndex]){
@@ -37,7 +37,7 @@ public class HeapSort {
     	}
 	}
 
-	private static void swap(int[] input, int i, int j) {
+	public static void swap(int[] input, int i, int j) {
 		int temp = input[j];
 		input[j] = input[i];
 		input[i] = temp;
@@ -50,7 +50,7 @@ public class HeapSort {
 	 * each call to maxHeapify = O(logn)
 	 * Total time for heapSort = O(nlogn)
 	 */
-	private static void heapSort(int[] input) {
+	public static void heapSort(int[] input) {
 		int count = 1;
 		HeapSort.buildHeap(input);
 		while(count<=input.length){
