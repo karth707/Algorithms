@@ -15,7 +15,7 @@ public class HeapSort {
 	 */
 	private static void buildHeap(int[] input) {
 		int size = input.length;
-		for(int parentIndex = size/2; parentIndex>=0; parentIndex--){
+		for(int parentIndex = size/2-1; parentIndex>=0; parentIndex--){
 			maxHeapify(input, parentIndex, size);
 		}
 	}	
