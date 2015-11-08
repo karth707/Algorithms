@@ -30,12 +30,7 @@ public class WeightedIntervalScheduling {
 		maxWeight[0] = weights[0];
 		int lastChosenSchedule = -1;
 		for(int i=1; i<numOfSchedules; i++){
-			int weight1;
-			if(prevBestInterval[i]>=0){
-				weight1 = weights[i] + maxWeight[prevBestInterval[i]];
-			}else{
-				weight1 = weights[i];
-			}
+			int weight1 = (prevBestInterval[i]>=0) ? weights[i] + maxWeight[prevBestInterval[i]] : weights[i];
 			int weight2 = maxWeight[i-1];
 			if(weight1 > weight2){
 				lastChosenSchedule = i;
