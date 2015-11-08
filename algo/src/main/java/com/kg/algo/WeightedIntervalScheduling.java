@@ -41,8 +41,10 @@ public class WeightedIntervalScheduling {
 			if(prevBestInterval[i] >= 0 && ((weights[i] + maxWeight[prevBestInterval[i]]) > maxWeight[i-1])){
 				lastChosenSchedule = i;
 				backTrackArray[i] = prevBestInterval[i];
-			}
-			else{
+			}else if(weights[i] > maxWeight[i-1]){
+				lastChosenSchedule = i;
+				backTrackArray[i] = -1;
+			}else{
 				backTrackArray[i] = -1;
 			}
 		}
